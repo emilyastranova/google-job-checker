@@ -67,7 +67,7 @@ def check_for_changes(links: List[str]) -> None:
     """
 
     logger.info("Checking for changes")
-    with open("links.json", "r", encoding="utf-8") as file:
+    with open("data/links.json", "r", encoding="utf-8") as file:
         old_links = json.load(file)
 
     # Check for new links

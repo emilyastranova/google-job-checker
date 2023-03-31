@@ -1,6 +1,6 @@
 .venv
 .env
-changes.json
-links.json
+data/changes.json
+data/links.json
 page.html
 __pycache__/

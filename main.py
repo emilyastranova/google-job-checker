@@ -47,7 +47,7 @@ def main(telegram_bot: telebot.TeleBot = None):
         logger.info(changes_report)
 
         # Save the changes
-        with open("changes.json", "w", encoding="utf-8") as file:
+        with open("data/changes.json", "w", encoding="utf-8") as file:
             json.dump(changes, file, indent=4)
             logger.info("Saved changes")
 
@@ -60,7 +60,7 @@ def main(telegram_bot: telebot.TeleBot = None):
         logger.info("No changes found")
 
     # Save the links
-    with open("links.json", "w", encoding="utf-8") as file:
+    with open("data/links.json", "w", encoding="utf-8") as file:
         json.dump(links, file, indent=4)
         logger.info("Saved links")
 
@@ -81,6 +81,17 @@ if __name__ == "__main__":
     if args.verbose:
         logger.debug("Verbose logging enabled")
         logger.enable("utils")
+
+    # Make links.json and changes.json if they don't exist
+    if not os.path.exists("data/links.json"):
+        logger.debug("Creating links.json")
+        with open("data/links.json", "w", encoding="utf-8") as file:
+            json.dump([], file)
+
+    if not os.path.exists("data/changes.json"):
+        logger.debug("Creating changes.json")
+        with open("data/changes.json", "w", encoding="utf-8") as file:
+            json.dump([], file)
 
     # Check if the required environment variables are set
     if not QUERY:

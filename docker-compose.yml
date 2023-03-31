@@ -9,8 +9,7 @@ services:
       dockerfile: Dockerfile
     restart: always
     volumes:
-      - ./changes.json:/app/changes.json
-      - ./links.json:/app/links.json
+      - ./data:/app/data
     environment:
       - QUERY=${QUERY}
       - TELEGRAM_TOKEN=${TELEGRAM_TOKEN}
