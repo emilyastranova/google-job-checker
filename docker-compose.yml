@@ -1,0 +1,17 @@
+version: '3.7'
+
+services:
+  google-job-checker:
+    container_name: google-job-checker
+    image: tyleraharrison/google-job-checker:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    volumes:
+      - ./changes.json:/app/changes.json
+      - ./links.json:/app/links.json
+    environment:
+      - QUERY=${QUERY}
+      - TELEGRAM_TOKEN=${TELEGRAM_TOKEN}
+      - TELEGRAM_USER_ID=${TELEGRAM_USER_ID}

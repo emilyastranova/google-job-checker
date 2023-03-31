@@ -1,0 +1,6 @@
+.venv
+.env
+changes.json
+links.json
+page.html
+__pycache__/
